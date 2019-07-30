@@ -4,9 +4,7 @@
         refresh = function () { 
             var w = docEl.clientWidth,
                 dpr = win.devicePixelRatio || 1;
-
             docEl.style.fontSize = 100 * (w/375) + 'px';
-
             function setBodyFontSize () {
                 if (doc.body) {
                     doc.body.style.fontSize = '16px';

@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './utils/iconfont'
+import 'nprogress/nprogress.css'
+import './styles/index.css';
+import './styles/index.less';
+import './utils/iconfont'   
 import './utils/rem'
 import DevTools from './devTools'
 // import { Provider } from 'react-redux'

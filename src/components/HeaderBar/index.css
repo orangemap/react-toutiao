@@ -1,0 +1,30 @@
+.headerbar-wrapper {
+    height: 0.5rem;
+    background: #d43d3d;
+}
+.logo {
+    width: 1.3rem;
+    height: 100%;
+}
+img {
+    width: 1rem;
+}
+.search {
+    width: calc(100% - 1.3rem);
+    position: relative;
+    color:#666;
+}
+.search-icon {
+    position: absolute;
+    left: 0.06rem;top: 50%;
+    transform: translateY(-50%);
+}
+input {
+    width: 90%;
+    height: 0.3rem;
+    border: none;
+    outline: none;
+    background: #f4f4f4;
+    text-indent: 0.3rem;
+    border-radius: 0.04rem;
+}
