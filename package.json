@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "less": "^3.9.0",
+    "nprogress": "^0.2.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-fastclick": "^3.0.2",
