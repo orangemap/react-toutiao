@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import 'nprogress/nprogress.css'
 import './styles/index.css';
 import './styles/index.less';
-import './utils/iconfont'   
-import './utils/rem'
-import DevTools from './devTools'
+// import './utils/iconfont'   
+// import DevTools from './devTools'
 // import { Provider } from 'react-redux'
 // import Router from './router'
 // import store from './store'
