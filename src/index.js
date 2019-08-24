@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'nprogress/nprogress.css'
+// import 'nprogress/nprogress.css'
 import './styles/index.css';
 import './styles/index.less';
 // import './utils/iconfont'   
