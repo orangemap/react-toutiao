@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.css'
 // import PropTypes from 'prop-types'
 class IconSvg extends React.Component {
     // static propTypes = {

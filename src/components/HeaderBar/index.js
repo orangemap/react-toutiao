@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../Icon-svg';
-import './index.less'
+import './index.css'
 // import {HashRouter, Route, Switch} from 'react-router-dom';
 export default class extends React.Component {
     render() {
