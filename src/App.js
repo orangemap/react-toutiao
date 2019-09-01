@@ -1,7 +1,7 @@
 import React from 'react';
 import HeaderBar from './components/HeaderBar'
 import FooterBar from "./components/FooterBar"
-import Home from "./views/Home/title"
+import Home from "./views/Home/content"
 import './utils/iconfont'
 const mainStyles = {
     width: '100%',

@@ -94,7 +94,7 @@ export default class Title extends Component{
                      }
                  </Swiper>
                 </div>  
-                <a  className="top-menu-more-btn df-c" href="javascript:void(0)" ><i className="list-shadow"></i><span className="cross"></span></a>
+                <a  className="top-menu-more-btn df-c" href="#" ><i className="list-shadow"></i><span className="cross"></span></a>
            </div>
         )
     }
