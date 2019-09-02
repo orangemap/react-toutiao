@@ -9,6 +9,7 @@ export default class Content extends Component{
          return (
              <div>
                 <Title></Title>
+                <div></div>
              </div>
          )
     }
