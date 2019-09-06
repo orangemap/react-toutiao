@@ -19,7 +19,7 @@ export default class extends React.Component {
         let arr = this.state.footerList
         arr.forEach((item, key) => {
             item.check = false
-            if (index == key) {
+            if (index === key) {
                 item.check = true
             }
         })
@@ -35,7 +35,7 @@ export default class extends React.Component {
                     {
                         this.state.footerList.map((item, index) => {
                             return (
-                                <li key={index} className={item.check == true ? "active" : ""} onClick={() => { this.handleClick(index) }}>
+                                <li key={index} className={item.check === true ? "active" : ""} onClick={() => { this.handleClick(index) }}>
                                     <Icon iconName={item.icon}></Icon>
                                     <div>
                                         {item.title}
