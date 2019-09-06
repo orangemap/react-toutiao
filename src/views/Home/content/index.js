@@ -5,19 +5,19 @@ export default class Content extends Component {
     state = {
         twoImageList: [
             {
-                title: "汽车",
+                title: "5月卖得最好的10款SUV",
                 text: " 5月份的SUV细分市场，总体销量依然下滑，共卖出66.9万台，同比下降9.6%。但这都不是让人忧心的，让人忧心的是国内SUV市场的自主品牌光环渐渐暗淡，销量逐渐被合资品牌分薄，看看销量榜就知道。",
                 imageUrl: "http://p1.pstatp.com/large/pgc-image/d559d390e69545b5bc58206648426abf",
                 count: "20"
             },
             {
-                title: "汽车",
+                title: "5月卖得最好的10款SUV",
                 text: "5月份的SUV细分市场，总体销量依然下滑，共卖出66.9万台，同比下降9.6%。但这都不是让人忧心的，让人忧心的是国内SUV市场的自主品牌光环渐渐暗淡，销量逐渐被合资品牌分薄，看看销量榜就知道。",
                 imageUrl: "http://p1.pstatp.com/large/pgc-image/d559d390e69545b5bc58206648426abf",
                 count: "120"
             },
             {
-                title: "汽车",
+                title: "5月卖得最好的10款SUV",
                 text: "5月份的SUV细分市场，总体销量依然下滑，共卖出66.9万台，同比下降9.6%。但这都不是让人忧心的，让人忧心的是国内SUV市场的自主品牌光环渐渐暗淡，销量逐渐被合资品牌分薄，看看销量榜就知道。",
                 imageUrl: "http://p1.pstatp.com/large/pgc-image/d559d390e69545b5bc58206648426abf",
                 count: "120"
@@ -25,19 +25,19 @@ export default class Content extends Component {
         ],
         oneImageList: [
             {
-                title: "娱乐",
+                title: "张艺谋看中一夜成名，如今模样大变",
                 text: " 张艺谋挖掘不过不少女星，大家都统称她们为“谋女郎”，被张艺谋选中的女星，她们身上都有一种与众不同的气质美，而且成为谋女郎之后，演艺事业都会发展的顺风顺水，知名度大增，甚至很大可能会一夜爆红。",
                 imageUrl: "http://p1.pstatp.com/large/pgc-image/4f68c4516a674608b60283825080363b",
                 count: "20"
             },
             {
-                title: "娱乐",
+                title: "张艺谋看中一夜成名，如今模样大变",
                 text: "张艺谋挖掘不过不少女星，大家都统称她们为“谋女郎”，被张艺谋选中的女星，她们身上都有一种与众不同的气质美，而且成为谋女郎之后，演艺事业都会发展的顺风顺水，知名度大增，甚至很大可能会一夜爆红。",
                 imageUrl: "http://p1.pstatp.com/large/pgc-image/4f68c4516a674608b60283825080363b",
                 count: "120"
             },
             {
-                title: "娱乐",
+                title: "张艺谋看中一夜成名，如今模样大变",
                 text: "张艺谋挖掘不过不少女星，大家都统称她们为“谋女郎”，被张艺谋选中的女星，她们身上都有一种与众不同的气质美，而且成为谋女郎之后，演艺事业都会发展的顺风顺水，知名度大增，甚至很大可能会一夜爆红。",
                 imageUrl: "http://p1.pstatp.com/large/pgc-image/4f68c4516a674608b60283825080363b",
                 count: "120"
