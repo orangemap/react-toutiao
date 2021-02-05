@@ -1,23 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import Resigter from "./views/resigter/Resigter.jsx";
-import Login from "./views/login/Login.jsx";
-import Main from "./views/main/Main.jsx";
-
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <HashRouter>
-      <Switch> <Route path="/resigter" component={Resigter}></Route>
-        <Route path="/login" component={Login}></Route>
-        <Route component={Main}></Route></Switch>
-    </HashRouter>
-  </Provider>
-  ,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById('root')
 );
 

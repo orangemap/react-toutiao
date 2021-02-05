@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-//主界面路由
-class main extends Component {
+
+class login extends Component {
     render() {
         return (
             <div>
-                Main
+                login
             </div>
         );
     }
 }
-
-export default main;
+export default login;
