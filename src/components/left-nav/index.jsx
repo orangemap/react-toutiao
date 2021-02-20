@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import "./index.less";
 import menuList from "../../config/menuConfig";
@@ -10,12 +10,15 @@ const { SubMenu } = Menu;
 
 //左侧导航组件
 class leftNav extends Component {
-  state = {
-    collapsed: false,
-  };
   //根据数据渲染menu菜单
   getMenuNode = (menuList) => {
+    const path = this.props.location.pathname;
     return menuList.map((item) => {
+      if (item.key) {
+        if (item.key === path) {
+          this.openKey = item.key
+        }
+      }
       if (item.children) {
         return (
           <SubMenu
@@ -44,6 +47,9 @@ class leftNav extends Component {
   };
 
   render() {
+    //当前请求的路由路径
+    const selectKey = this.props.location.pathname;
+    const menuNodes = this.getMenuNode(menuList);
     return (
       <div className="left-nav">
         <Link className="left-nav-link" to="/home">
@@ -52,13 +58,12 @@ class leftNav extends Component {
         </Link>
         <div style={{ width: "100%" }}>
           <Menu
-            defaultSelectedKeys={["/home"]}
-            defaultOpenKeys={["/product"]}
+            defaultSelectedKeys={[selectKey]}
+            defaultOpenKeys={[this.openKey]}
             mode="inline"
             theme="dark"
-            inlineCollapsed={this.state.collapsed}
           >
-            {this.getMenuNode(menuList)}
+            {menuNodes}
           </Menu>
         </div>
       </div>
@@ -66,4 +71,4 @@ class leftNav extends Component {
   }
 }
 
-export default leftNav;
+export default withRouter(leftNav);
