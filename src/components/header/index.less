@@ -1,3 +1,43 @@
-.header{
-    height: 80px;
+.header {
+  height: 80px;
+  background-color: white;
+  .header-top {
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    padding-right: 20px;
+    border-bottom: 1px solid green;
+  }
+  .header-bottom {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    .header-bottom-left {
+        width: 25%;
+        position: relative;
+        text-align: center;
+        font-size: 20px;
+        &::after{
+            position:absolute;
+            left: 50%;
+            transform:translateX(-50%);
+            top: 30px;
+            content: "";
+            border-top: 20px solid white;
+            border-right: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+        }
+    }
+    .header-bottom-right {
+        width: 75%;
+        text-align: right;
+        padding-right: 20px;
+        img{
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+        }
+    }
+  }
 }

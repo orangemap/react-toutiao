@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 import Admin from "./pages/admin/admin";
 import Login from "./pages/login/login";
 import Category from "./pages/category";
@@ -11,10 +11,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/login"
                         component={Login} />
-                    <Route path="/category"
-                        component={Category} />
-                    <Route ath="/admin"
-                        component={Admin} />
+                    <Route ath="/" component={Admin} />
                 </Switch>
             </HashRouter>
         );

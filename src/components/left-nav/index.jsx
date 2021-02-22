@@ -45,11 +45,12 @@ class leftNav extends Component {
       }
     });
   };
-
+ componentWillMount(){
+   this.menuNodes = this.getMenuNode(menuList);
+ }
   render() {
     //当前请求的路由路径
     const selectKey = this.props.location.pathname;
-    const menuNodes = this.getMenuNode(menuList);
     return (
       <div className="left-nav">
         <Link className="left-nav-link" to="/home">
@@ -58,12 +59,12 @@ class leftNav extends Component {
         </Link>
         <div style={{ width: "100%" }}>
           <Menu
-            defaultSelectedKeys={[selectKey]}
+            selectedKeys={[selectKey]}
             defaultOpenKeys={[this.openKey]}
             mode="inline"
             theme="dark"
           >
-            {menuNodes}
+            {this.menuNodes }
           </Menu>
         </div>
       </div>

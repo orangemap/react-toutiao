@@ -9,7 +9,7 @@ class login extends Component {
     if (username && password) {
       localStorage.setItem("user", "王建文");
       message.success("登录成功");
-      this.props.history.push("/admin");
+      this.props.history.replace("/")
     }
   };
   validatorPwd = (rule, value, callback) => {
