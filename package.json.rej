@@ -1,0 +1,65 @@
+diff a/package.json b/package.json	(rejected hunks)
+@@ -1,31 +1,44 @@
+ {
+-  "name": "react-admin",
++  "name": "react-work",
+   "version": "0.1.0",
+   "private": true,
+   "dependencies": {
+-    "@craco/craco": "^6.1.0",
+-    "@testing-library/jest-dom": "^5.11.4",
+-    "@testing-library/react": "^11.1.0",
+-    "@testing-library/user-event": "^12.1.10",
+-    "antd": "^4.12.2",
+-    "craco-less": "^1.17.1",
+-    "react": "^17.0.1",
+-    "react-dom": "^17.0.1",
+-    "react-router-dom": "^5.2.0",
+-    "react-scripts": "4.0.1",
+-    "web-vitals": "^0.2.4"
++    "@antv/data-set": "^0.10.2",
++    "antd": "^3.23.1",
++    "axios": "^0.19.0",
++    "babel-plugin-import": "^1.12.1",
++    "bizcharts": "^3.5.5",
++    "customize-cra": "^0.5.0",
++    "draftjs-to-html": "^0.8.4",
++    "echarts": "^4.3.0",
++    "echarts-for-react": "^2.0.15-beta.0",
++    "jsonp": "^0.2.1",
++    "less": "^3.10.3",
++    "less-loader": "^5.0.0",
++    "md5": "^2.2.1",
++    "react": "^16.9.0",
++    "react-app-rewired": "2.0.2-next.0",
++    "react-dom": "^16.9.0",
++    "react-draft-wysiwyg": "^1.13.2",
++    "react-redux": "^7.1.1",
++    "react-router-dom": "^5.0.1",
++    "react-scripts": "3.1.1",
++    "redux": "^4.0.4",
++    "redux-logger": "^3.0.6",
++    "redux-thunk": "^2.3.0",
++    "store": "^2.0.12"
+   },
+   "scripts": {
+-    "start": "craco start",
+-    "build": "craco build",
+-    "test": "craco test",
++    "start": "react-app-rewired start",
++    "build": "react-app-rewired build",
++    "test": "react-app-rewired test",
+     "eject": "react-scripts eject"
+   },
+   "eslintConfig": {
+-    "extends": [
+-      "react-app",
+-      "react-app/jest"
+-    ]
++    "extends": "react-app",
++    "rules": {
++      "jsx-a11y/anchor-is-valid": "off"
++    }
+   },
+   "browserslist": {
+     "production": [

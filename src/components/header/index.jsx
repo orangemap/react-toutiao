@@ -3,8 +3,8 @@ import { withRouter } from "react-router-dom";
 import { Modal } from "antd";
 import "./index.less";
 import menuList from "../../config/menuConfig";
-import {reqWeather} from "../../api/index"
-import {formateDate} from "../../utils/dateUtils"
+import { reqWeather } from "../../api/index";
+import { formateDate } from "../../utils/dateUtils";
 const { confirm } = Modal;
 class index extends Component {
   state = {
@@ -17,8 +17,7 @@ class index extends Component {
       onOk: () => {
         this.props.history.replace("/login");
       },
-      onCancel: () => {
-      },
+      onCancel: () => {},
     });
     //确定后删除用户信息
   };
@@ -37,17 +36,18 @@ class index extends Component {
     });
     return title;
   };
+  componentWillUnmount() {
+    clearInterval(this.IntervalId);
+  }
   componentDidMount() {
     //启动定时器
     this.IntervalId = setInterval(() => {
       this.setState({
-        currentTime:formateDate( Date.now()),
+        currentTime: formateDate(Date.now()),
       });
     }, 1000);
   }
-  componentWillUnmount() {
-    clearInterval(this.IntervalId);
-  }
+
   render() {
     const title = this.getTitle();
     const { currentTime } = this.state;
