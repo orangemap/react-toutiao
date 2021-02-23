@@ -3,8 +3,13 @@ import { withRouter } from "react-router-dom";
 import { Modal } from "antd";
 import "./index.less";
 import menuList from "../../config/menuConfig";
+import {reqWeather} from "../../api/index"
+import {formateDate} from "../../utils/dateUtils"
 const { confirm } = Modal;
 class index extends Component {
+  state = {
+    currentTime: formateDate(Date.now()),
+  };
   logout = () => {
     //显示确认提示
     confirm({
@@ -13,7 +18,6 @@ class index extends Component {
         this.props.history.replace("/login");
       },
       onCancel: () => {
-        console.log("Cancel");
       },
     });
     //确定后删除用户信息
@@ -25,7 +29,7 @@ class index extends Component {
       if (item.key === path) {
         title = item.title;
       } else if (item.children) {
-        let cItem = item.children.find(cItem => cItem.key === path);
+        let cItem = item.children.find((cItem) => cItem.key === path);
         if (cItem) {
           title = cItem.title;
         }
@@ -33,9 +37,20 @@ class index extends Component {
     });
     return title;
   };
+  componentDidMount() {
+    //启动定时器
+    this.IntervalId = setInterval(() => {
+      this.setState({
+        currentTime:formateDate( Date.now()),
+      });
+    }, 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.IntervalId);
+  }
   render() {
     const title = this.getTitle();
-    console.log(title)
+    const { currentTime } = this.state;
     return (
       <div className="header">
         <div className="header-top">
@@ -47,7 +62,7 @@ class index extends Component {
         <div className="header-bottom">
           <div className="header-bottom-left">{title}</div>
           <div className="header-bottom-right">
-            <span>2019-07-01 14:00:12</span>
+            <span>{currentTime}</span>
             <img
               src="https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"
               alt="avatar"
