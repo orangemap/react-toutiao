@@ -13,14 +13,22 @@ class index extends Component {
   logout = () => {
     //显示确认提示
     confirm({
-      title: "确认退出吗?",
+      title: '确定要退出登录么?',
+      okText: '确认',
+      cancelText: '取消',
       onOk: () => {
-        this.props.history.replace("/login");
+        this.props.history.replace("/login")
       },
-      onCancel: () => {},
+      onCancel() {
+        console.log('Cancel');
+      },
     });
-    //确定后删除用户信息
   };
+  getWeather = async (city) => {
+    // 调用接口请求异步获取数据
+    const { dayPictureUrl, weather } = await reqWeather(city)
+    
+  }
   getTitle = () => {
     let title = "";
     const path = this.props.location.pathname;
@@ -40,6 +48,7 @@ class index extends Component {
     clearInterval(this.IntervalId);
   }
   componentDidMount() {
+    this.getWeather('上海')
     //启动定时器
     this.IntervalId = setInterval(() => {
       this.setState({
@@ -55,7 +64,7 @@ class index extends Component {
       <div className="header">
         <div className="header-top">
           欢迎，admin &nbsp;&nbsp;
-          <a href="javascript:" onClick={this.logout}>
+          <a onClick={this.logout}>
             退出
           </a>
         </div>
