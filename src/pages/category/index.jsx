@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Modal, Table, Form, Input } from "antd";
+import { Card, Button, Modal, Table, Form, Input,message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import LinkButton from "../../components/link-button";
 import CateGory from "../../api/cate";
@@ -10,9 +10,15 @@ class index extends Component {
     name: "",
     showStatus: 0,
   };
+  
   showModal = () => {
     this.setState({
       showStatus: 1,
+    });
+  };
+  showModals = () => {
+    this.setState({
+      showStatus: 2,
     });
   };
   handleOk = (e) => {
@@ -20,6 +26,8 @@ class index extends Component {
       this.setState({
         showStatus: 0,
       });
+    }else{
+        message.error('请输入分类名称');
     }
   };
   handleCancel = (e) => {
@@ -35,7 +43,7 @@ class index extends Component {
         title: "操作",
         dataIndex: "",
         width: 300,
-        render: () => <LinkButton>修改分类</LinkButton>,
+        render: () => <LinkButton  onClick={this.showModals}>修改分类</LinkButton>,
       },
     ];
   };
@@ -45,12 +53,12 @@ class index extends Component {
       loading: true,
     });
   };
-  onFinish = (values) => {
+  onValuesChange = (values) => {
     console.log(values);
-    // const { name } = values;
-    // this.setState({
-    //   name,
-    // });
+    const { name } = values;
+    this.setState({
+      name,
+    });
   };
   componentWillMount() {
     this.initColums();
@@ -64,6 +72,7 @@ class index extends Component {
     }, 1000);
   }
   render() {
+      
     //右上角的操作区域
     const extra = (
       <Button type="primary" onClick={this.showModal}>
@@ -85,17 +94,18 @@ class index extends Component {
         <Modal
           title={showStatus === 1 ? "添加分类" : "修改分类"}
           visible={showStatus !== 0 ? true : false}
+          okText="确认"
+          cancelText="取消"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
           <Form
             name="normal_login"
             className="login-form"
+            onValuesChange={this.onValuesChange}
             initialValues={{
-              remember: true,
+                name: "",
             }}
-            
-            onFinish={this.onFinish}
           >
             <Form.Item
               name="name"
