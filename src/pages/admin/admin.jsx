@@ -5,7 +5,7 @@ import LeftNav from "../../components/left-nav/index";
 import Header from "../../components/header/index";
 import Home from "../home"
 import Category from "../category"
-import Product from "../product"
+import Product from "../product/product"
 import Role from "../role"
 import User from "../user"
 import Bar from "../bar"

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, Modal, Table, Form, Input,message } from "antd";
+import { Card, Button, Modal, Table, Form, Input, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import LinkButton from "../../components/link-button";
 import CateGory from "../../api/cate";
@@ -10,7 +10,7 @@ class index extends Component {
     name: "",
     showStatus: 0,
   };
-  
+  formRef = React.createRef();
   showModal = () => {
     this.setState({
       showStatus: 1,
@@ -26,13 +26,19 @@ class index extends Component {
       this.setState({
         showStatus: 0,
       });
-    }else{
-        message.error('请输入分类名称');
+      this.formRef.current.setFieldsValue({
+        name: "",
+      });
+    } else {
+      message.error("请输入分类名称");
     }
   };
   handleCancel = (e) => {
     this.setState({
       showStatus: 0,
+    });
+    this.formRef.current.setFieldsValue({
+      name: "",
     });
   };
   //初始化表格
@@ -43,7 +49,9 @@ class index extends Component {
         title: "操作",
         dataIndex: "",
         width: 300,
-        render: () => <LinkButton  onClick={this.showModals}>修改分类</LinkButton>,
+        render: () => (
+          <LinkButton onClick={this.showModals}>修改分类</LinkButton>
+        ),
       },
     ];
   };
@@ -72,7 +80,6 @@ class index extends Component {
     }, 1000);
   }
   render() {
-      
     //右上角的操作区域
     const extra = (
       <Button type="primary" onClick={this.showModal}>
@@ -102,9 +109,10 @@ class index extends Component {
           <Form
             name="normal_login"
             className="login-form"
+            ref={this.formRef}
             onValuesChange={this.onValuesChange}
             initialValues={{
-                name: "",
+              name: "",
             }}
           >
             <Form.Item
