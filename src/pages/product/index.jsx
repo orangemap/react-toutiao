@@ -3,6 +3,7 @@ import { Card, Select, Input, Table, Button, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import products from "../../api/product";
 import LinkButton from "../../components/link-button";
+import memoryUtils  from "../../utils/memoryUtils"
 const Option = Select.Option;
 class index extends Component {
   state = {
@@ -55,16 +56,20 @@ class index extends Component {
         title: "操作",
         dataIndex: "",
         width: 200,
-        render: () => (
+        render: (product) => (
           <span>
             <LinkButton
               onClick={() => {
+                memoryUtils.product =product
                 this.props.history.push("/product/detail");
               }}
             >
               详情
             </LinkButton>
-            <LinkButton onClick={this.showModals}>修改</LinkButton>
+            <LinkButton onClick={()=>{
+                memoryUtils.product =product
+                this.props.history.push("/product/add");
+            }}>修改</LinkButton>
           </span>
         ),
       },
@@ -142,7 +147,10 @@ class index extends Component {
     );
     //右上角的操作区域
     const extra = (
-      <Button type="primary">
+      <Button type="primary" onClick={()=>{
+        memoryUtils.product ={}
+        this.props.history.push("/product/add");
+      }}>
         <PlusOutlined />
         添加商品
       </Button>

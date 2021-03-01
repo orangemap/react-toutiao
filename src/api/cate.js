@@ -23,11 +23,6 @@ const CateGory = [
     "parentId": "5c2ed631f352726338607046",
     "_id": "5c2ed66ff35272633860704a",
     "name": "分类34"
-  }, 
-  {
-    "parentId": "5c2ed631f352726338607046",
-    "_id": "5c2ed66ff35272633860704a",
-    "name": "分类34"
-  }
+  },
 ]
 export default CateGory
