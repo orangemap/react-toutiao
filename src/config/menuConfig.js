@@ -19,7 +19,7 @@ const menuList = [
         title: '商品管理',
         key: '/product',
         icon: 'LeftSquareOutlined'
-      },
+      }
     ]
   },
 

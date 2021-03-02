@@ -4,6 +4,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import products from "../../api/product";
 import LinkButton from "../../components/link-button";
 import memoryUtils  from "../../utils/memoryUtils"
+// import throttle from "lodash.throttle";
 const Option = Select.Option;
 class index extends Component {
   state = {
@@ -138,6 +139,7 @@ class index extends Component {
         <Button
           type="primary"
           onClick={() => {
+            this.isSeach = true
             this.getProducts(1);
           }}
         >

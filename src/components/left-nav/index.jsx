@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
-import "./index.less";
-import menuList from "../../config/menuConfig";
 import { Menu } from "antd";
 import * as Icon from "@ant-design/icons";
-
+import logo from "../../assets/images/logo.png";
+import menuList from "../../config/menuConfig";
+import "./index.less";
 const { SubMenu } = Menu;
 
 //左侧导航组件

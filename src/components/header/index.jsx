@@ -32,7 +32,10 @@ class index extends Component {
   };
   getTitle = () => {
     let title = "";
-    const path = this.props.location.pathname;
+    let path = this.props.location.pathname;
+    if (path.indexOf("/product") === 0) {
+      path = "/product";
+    }
     menuList.forEach((item) => {
       if (item.key === path) {
         title = item.title;

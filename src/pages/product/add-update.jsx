@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Card, Form, Select, Input, Button } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import LinkButton from "../../components/link-button";
-import PicturesWall from "./pictures-wall"
+import PicturesWall from "./pictures-wall";
+import RichTextEditor from "./rich-text-editor";
 import CateGory from "../../api/cate";
 import "./index.less";
 import memoryUtils from "../../utils/memoryUtils";
@@ -47,7 +48,7 @@ class ProductAddUpdate extends Component {
     this.product = memoryUtils.product;
     this.isUpdate = !!this.product._id;
     if (!this.isUpdate) {
-        this.product = {}
+      this.product = {};
     }
   }
   render() {
@@ -131,12 +132,12 @@ class ProductAddUpdate extends Component {
             </Select>
           </Item>
           <Item label="商品图片:">
-          <PicturesWall></PicturesWall>
+            <PicturesWall></PicturesWall>
           </Item>
-          <Item label="商品详情:">
-            <div>这是商品z详情组件</div>
+          <Item label="商品详情:" wrapperCol={ {span: 20 }}>
+            <RichTextEditor></RichTextEditor>
           </Item>
-          <Item>
+          <Item >
             <Button type="primary" htmlType="submit">
               提交
             </Button>
