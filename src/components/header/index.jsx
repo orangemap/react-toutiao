@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Modal } from "antd";
+import LinkButotn from "../link-button";
 import "./index.less";
 import menuList from "../../config/menuConfig";
 import { reqWeather } from "../../api/index";
@@ -13,17 +14,28 @@ class index extends Component {
   logout = () => {
     //显示确认提示
     confirm({
-      title: "确认退出吗?",
+      title: "确定要退出登录么?",
+      okText: "确认",
+      cancelText: "取消",
       onOk: () => {
         this.props.history.replace("/login");
       },
-      onCancel: () => {},
+      onCancel() {
+        console.log("Cancel");
+      },
     });
-    //确定后删除用户信息
+  };
+  getWeather = async (city) => {
+    // 调用接口请求异步获取数据
+    const { dayPictureUrl, weather } = await reqWeather(city);
+    console.log(dayPictureUrl);
   };
   getTitle = () => {
     let title = "";
-    const path = this.props.location.pathname;
+    let path = this.props.location.pathname;
+    if (path.indexOf("/product") === 0) {
+      path = "/product";
+    }
     menuList.forEach((item) => {
       if (item.key === path) {
         title = item.title;
@@ -40,6 +52,7 @@ class index extends Component {
     clearInterval(this.IntervalId);
   }
   componentDidMount() {
+    // this.getWeather("广州");
     //启动定时器
     this.IntervalId = setInterval(() => {
       this.setState({
@@ -55,9 +68,7 @@ class index extends Component {
       <div className="header">
         <div className="header-top">
           欢迎，admin &nbsp;&nbsp;
-          <a href="javascript:" onClick={this.logout}>
-            退出
-          </a>
+          <LinkButotn onClick={this.logout}>退出</LinkButotn>
         </div>
         <div className="header-bottom">
           <div className="header-bottom-left">{title}</div>

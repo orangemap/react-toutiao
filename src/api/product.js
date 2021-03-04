@@ -3,7 +3,7 @@ const Product = [
     _id: '1',
     name: 'Business Broker',
     desc: 'Assistant Buyer',
-    price: '658773682.97',
+    price: '3682.97',
     status: '1',
     detail: 'Mr. Johnathan West, Cavendish 3493, New Orleans - 8637, Egypt'
   },

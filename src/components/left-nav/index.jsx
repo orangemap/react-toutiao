@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
-import "./index.less";
-import menuList from "../../config/menuConfig";
 import { Menu } from "antd";
 import * as Icon from "@ant-design/icons";
-
+import logo from "../../assets/images/logo.png";
+import menuList from "../../config/menuConfig";
+import "./index.less";
 const { SubMenu } = Menu;
 
 //左侧导航组件
@@ -14,12 +13,11 @@ class leftNav extends Component {
   getMenuNode = (menuList) => {
     const path = this.props.location.pathname;
     return menuList.map((item) => {
-      if (item.key) {
-        if (item.key === path) {
-          this.openKey = item.key
-        }
-      }
       if (item.children) {
+        const cItem = item.children.find(cItem => path.indexOf(cItem.key) === 0);
+        if (cItem) {
+          this.openKey = item.key;
+        }
         return (
           <SubMenu
             key={item.key}
@@ -45,12 +43,15 @@ class leftNav extends Component {
       }
     });
   };
- componentWillMount(){
-   this.menuNodes = this.getMenuNode(menuList);
- }
+  componentWillMount() {
+    this.menuNodes = this.getMenuNode(menuList);
+  }
   render() {
     //当前请求的路由路径
-    const selectKey = this.props.location.pathname;
+    let selectKey = this.props.location.pathname;
+    if (selectKey.indexOf("/product")===0) {
+      selectKey = "/product";
+    }
     return (
       <div className="left-nav">
         <Link className="left-nav-link" to="/home">
@@ -64,7 +65,7 @@ class leftNav extends Component {
             mode="inline"
             theme="dark"
           >
-            {this.menuNodes }
+            {this.menuNodes}
           </Menu>
         </div>
       </div>

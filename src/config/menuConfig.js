@@ -7,7 +7,7 @@ const menuList = [
   },
   {
     title: '商品',
-    key: '/product',
+    key: '/products',
     icon: 'MenuUnfoldOutlined',
     children: [ // 子菜单列表
       {
@@ -19,7 +19,7 @@ const menuList = [
         title: '商品管理',
         key: '/product',
         icon: 'LeftSquareOutlined'
-      },
+      }
     ]
   },
 
