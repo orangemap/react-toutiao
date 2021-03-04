@@ -35,7 +35,7 @@ class index extends Component {
                 render: (role) => (
                     <LinkButton
                         onClick={() => {
-                            this.props.history.push("/product/detail");
+                            // this.props.history.push("/product/detail");
                         }}
                     >
                         设置权限
