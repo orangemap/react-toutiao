@@ -34,7 +34,9 @@ class ProductAddUpdate extends Component {
   };
   onFinish = (values) => {
     const { name, desc, price, categoryId } = values;
-    console.log(values);
+    const detail = this.refs["editRef"].getDetail();
+    const imgs = this.refs["ptwRef"].getImgs();
+    this.props.history.push("/product")
   };
   componentDidMount() {
     this.getCategorys();
@@ -132,10 +134,10 @@ class ProductAddUpdate extends Component {
             </Select>
           </Item>
           <Item label="商品图片:">
-            <PicturesWall></PicturesWall>
+            <PicturesWall  imgs={product.imgs} ref="ptwRef"></PicturesWall>
           </Item>
           <Item label="商品详情:" wrapperCol={ {span: 20 }}>
-            <RichTextEditor></RichTextEditor>
+            <RichTextEditor detail={product.detail}  ref="editRef"></RichTextEditor>
           </Item>
           <Item >
             <Button type="primary" htmlType="submit">

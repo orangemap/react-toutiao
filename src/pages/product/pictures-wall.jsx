@@ -1,29 +1,27 @@
 import React, { Component } from "react";
-import { Upload, Modal } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import { Upload, Modal } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
-    reader.onerror = error => reject(error);
+    reader.onerror = (error) => reject(error);
   });
 }
 
- class PicturesWall extends React.Component {
+class PicturesWall extends React.Component {
   state = {
     previewVisible: false,
-    previewImage: '',
-    previewTitle: '',
-    fileList: [
-     
-    ],
+    previewImage: "",
+    previewTitle: "",
+    fileList: [],
   };
 
   handleCancel = () => this.setState({ previewVisible: false });
 
-  handlePreview = async file => {
+  handlePreview = async (file) => {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj);
     }
@@ -31,10 +29,14 @@ function getBase64(file) {
     this.setState({
       previewImage: file.url || file.preview,
       previewVisible: true,
-      previewTitle: file.name || file.url.substring(file.url.lastIndexOf('/') + 1),
+      previewTitle:
+        file.name || file.url.substring(file.url.lastIndexOf("/") + 1),
     });
   };
-
+  getImgs = () => {
+    // 返回输入数据对应的html格式的文本
+    return this.state.fileList;
+  };
   handleChange = ({ fileList }) => this.setState({ fileList });
 
   render() {
@@ -62,7 +64,7 @@ function getBase64(file) {
           footer={null}
           onCancel={this.handleCancel}
         >
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
+          <img alt="example" style={{ width: "100%" }} src={previewImage} />
         </Modal>
       </>
     );
