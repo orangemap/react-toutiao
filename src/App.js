@@ -4,7 +4,6 @@ import Admin from "./pages/admin/admin";
 import Login from "./pages/login/login";
 import Category from "./pages/category";
 import "./App.less";
-console.log("21212")
 class App extends Component {
     render() {
         return (
